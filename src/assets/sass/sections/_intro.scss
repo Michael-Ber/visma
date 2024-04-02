@@ -1,0 +1,108 @@
+.intro {
+    background: url('./assets/img/webp/intro.webp') center center/cover no-repeat;
+    padding: 113px 0;
+    @media(max-width: $breakpoint-991) {
+        padding: 80px 0;
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media(max-width: $breakpoint-991) {
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+
+    &__left {
+        width: 50%;
+        @media(max-width: $breakpoint-991) {
+            width: 100%;
+        }
+    }
+
+    &__title {
+        @include adaptiv-size-rem('font-size', 3.125, 2);
+        color: $white;
+        font-weight: 900;
+        padding: 0 20px 40px 0;
+        margin: 0;
+        line-height: 140%;
+        @media(max-width: $breakpoint-991) {
+            text-align: center;
+        }
+    }
+
+    &__subtitle {
+        @include adaptiv-size-rem('font-size', 1, 0.85);
+        color: $white;
+        padding-bottom: 60px;
+        line-height: 140%;
+        max-width: 50%;
+        margin: 0 auto;
+        @media(max-width: $breakpoint-991) {
+            max-width: 70%;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+        @media(max-width: $breakpoint-767) {
+            max-width: 100%;
+        }
+    }
+
+    &__btn {
+        text-decoration: none;
+        @media(max-width: $breakpoint-991) {
+            display: flex !important; 
+            justify-content: center;
+        }
+    }
+
+    &__right {
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 300px);
+        grid-template-rows: auto;
+        justify-content: center;
+        gap: 24px;
+        @media(max-width: $breakpoint-1299) {
+            grid-template-columns: repeat(auto-fill, 220px);
+        }
+        @media(max-width: $breakpoint-991) {
+            width: 100%;
+            grid-template-columns: repeat(auto-fill, minmax(220px, auto));
+        }
+    }
+
+    &__services {
+        width: 300px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        justify-self: center;
+        padding: 30px 35px;
+        background-color: $sec-color;
+        border-radius: 20px;
+        @media(max-width: $breakpoint-1299) {
+            width: 220px;
+            height: 190px;
+        }
+    }
+}
+.services-intro {
+
+    &__title {
+        font-size: 0.8125rem;
+        color: $white;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    &__operations {
+        @include adaptiv-size-rem('font-size', 1.1825, 0.85);
+        line-height: 140%;
+        color: $white;
+        margin: 0;
+    }
+}

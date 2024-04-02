@@ -1,0 +1,16 @@
+@mixin adaptiv-size($propName, $pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    #{$propName}: calc((#{$addSize} / (#{$maxWidth} - #{$minWidth}) * ((100vw - #{$minWidth + px})) + #{$mobSize + px}));
+}
+
+
+
+
+@mixin adaptiv-size-rem($propName, $pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    #{$propName}: calc((#{$addSize} / (#{$maxWidthRem} - #{$minWidthRem}) * ((100vw - #{$minWidthRem + rem})) + #{$mobSize + rem}));
+}
+
+@mixin ptsans {
+    font-family: "PT Sans", sans-serif;
+}

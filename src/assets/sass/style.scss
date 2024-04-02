@@ -1,0 +1,79 @@
+@import './var/variables';
+@import './var/mixins';
+@import './sections/header';
+@import './sections/intro';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @include ptsans;
+    font-weight: 400;
+    font-style: normal;
+    min-width: 320px;
+    margin: 0;
+    padding: 0;
+    line-height: 140%;
+}
+
+.container {
+    max-width: $container + 30;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-title {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.btn {
+    @include ptsans;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    border: none;
+    text-transform: uppercase;
+    background-color: transparent;
+    font-weight: 900;
+    font-size: 1rem;
+    transition: .1s transform ease;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &_main {
+        color: $main-color;
+    }
+    &_sec {
+        color: $white;
+    }
+}
+
+.btn-arrow {
+    position: relative;
+    
+    &::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background-color: transparent;
+        border: 2px solid $white;
+    }
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.btn-file {
+    background-color: $sec-color;
+    color: $white;
+    border-radius: 10px;
+}
