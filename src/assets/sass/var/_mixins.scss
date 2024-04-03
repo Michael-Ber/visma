@@ -2,9 +2,10 @@
     $addSize: $pcSize - $mobSize;
     #{$propName}: calc((#{$addSize} / (#{$maxWidth} - #{$minWidth}) * ((100vw - #{$minWidth + px})) + #{$mobSize + px}));
 }
-
-
-
+@mixin adaptiv-size-grid-col($propName, $pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    #{$propName}: repeat(auto-fill, calc((#{$addSize} / (#{$maxWidth} - #{$minWidth}) * ((100vw - #{$minWidth + px})) + #{$mobSize + px})));
+}
 
 @mixin adaptiv-size-rem($propName, $pcSize, $mobSize) {
     $addSize: $pcSize - $mobSize;

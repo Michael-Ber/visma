@@ -52,6 +52,7 @@
 
     &__btn {
         text-decoration: none;
+        
         @media(max-width: $breakpoint-991) {
             display: flex !important; 
             justify-content: center;

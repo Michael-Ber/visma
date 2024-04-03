@@ -1,0 +1,84 @@
+.news {
+    padding: 150px 0;
+    @media(max-width: $breakpoint-991) {
+        padding: 80px 0;
+    }
+    &__wrapper {
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 60px;
+    }
+
+    &__title {
+    }
+
+    &__btn {
+        text-decoration: none;
+    }
+
+    &__cards {
+        @include adaptiv-size-grid-col('grid-template-columns', 306, 180);
+        display: grid;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    &__card {
+        border-radius: 20px;
+    }
+}
+.card-news {
+    $parent: &;
+    &_1 {
+        #{$parent}__img {
+            background: url('./assets/img/webp/news-1.webp') top left/cover no-repeat;
+        }
+    }
+
+    &_2 {
+        #{$parent}__img {
+            background: url('./assets/img/webp/news-2.webp') top left/cover no-repeat;
+        }
+    }
+
+    &_3 {
+        #{$parent}__img {
+            background: url('./assets/img/webp/news-3.webp') top left/cover no-repeat;
+        }
+    }
+
+    &_4 {
+        #{$parent}__img {
+            background: url('./assets/img/webp/news-4.webp') top left/cover no-repeat;
+        }
+    }
+
+    &__img {
+        height: 214px;
+        margin-bottom: 25px;
+        border-radius: 20px;
+    }
+
+    &__content {
+        padding: 0 15px;
+    }
+
+    &__date {
+        font-size: 0.8125rem;
+        font-weight: 900;
+    }
+
+    &__title {
+        @include adaptiv-size-rem('font-size', 1.1875, .875);
+        font-weight: 900;
+    }
+
+    &__text {
+        @include adaptiv-size-rem('font-size', .875, .7);
+        font-weight: 400;
+    }
+}
