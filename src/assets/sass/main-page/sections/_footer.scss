@@ -1,0 +1,176 @@
+.footer {
+    color: $white;
+    &__up {
+        background-color: rgba($main-color, .85);
+        padding: 45px 0;
+    }
+
+    &__up-wrapper {
+        display: grid;
+        grid-template-columns: 380px 110px 380px; 
+        justify-content: space-between;
+        gap: 30px;
+        @media(max-width: $breakpoint-991) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__address {
+        @include adaptiv-size-rem('font-size', 1, 0.875);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-weight: 900;
+        &::before {
+            content: url('./assets/icons/map-icon.svg');
+        }
+        @media(max-width: $breakpoint-991) {
+            justify-content: center;
+            order: 2;
+        }
+    }
+
+    &__logo {
+        justify-self: center;
+        &:hover {
+            .footer-logo-path {
+                transition: .3s fill ease;
+                fill: $black;
+            }
+        }
+        @media(max-width: 1169px) {
+            order: 3;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+        @media(max-width: $breakpoint-991) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            order: 1;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        @media(max-width: 1169px) {
+            order: 2;
+            grid-column-start: 3;
+            grid-column-end: 4;
+        }
+        @media(max-width: $breakpoint-991) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            justify-content: center;
+            order: 3;
+        }
+        @media(max-width: $breakpoint-575) {
+            flex-direction: column;
+        }
+    }
+
+    &__contact {
+        @include adaptiv-size-rem('font-size', 1, 0.875);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: $white;
+        text-decoration: none;
+        font-weight: 900;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__phone {
+        &::before {
+            content: url('./assets/icons/phone.svg');
+        }
+    }
+
+    &__email {
+        &::before {
+            content: url('./assets/icons/mail.svg');
+        }
+    }
+
+    &__bottom {
+        background-color: $main-color;
+        padding: 80px 0;
+    }
+
+    &__lists {
+        @include adaptiv-size-grid-col('grid-template-columns', 306, 250);
+        display: grid;
+        justify-content: center;
+        column-gap: 24px;
+        row-gap: 70px;
+        @media(max-width: $breakpoint-991) {
+            row-gap: 40px;
+        }
+    }
+
+    &__info {
+    }
+
+    &__list {
+        @include adaptiv-size-rem('font-size', 1, 0.875);
+        font-weight: 900;
+        margin: 0;
+        list-style: none;
+        text-transform: uppercase;
+    }
+
+    &__list-title {
+        display: block;
+        margin-bottom: 30px;
+        @media(max-width: $breakpoint-991) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__item {
+        @include adaptiv-size-rem('font-size', 0.875, 0.75);
+        font-weight: 400;
+        text-transform: capitalize;
+        color: $white;
+        &:nth-child(n):not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+
+
+
+    &__purchase {
+    }
+
+    &__link {
+        font-size: inherit;
+        font-weight: inherit;
+        text-transform: inherit;
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__sharer {
+    }
+
+    &__company {
+    }
+
+    &__rights {
+        font-size: 0.8125rem;
+        font-weight: 900;
+        color: rgba($white, .5);
+        text-transform: uppercase;
+        margin: 0;
+        background-color: $main-color;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+}
+

@@ -1,10 +1,18 @@
 @import './var/variables';
 @import './var/mixins';
-@import './sections/header';
-@import './sections/intro';
-@import './sections/services';
-@import './sections/about';
-@import './sections/news';
+// MAIN PAGE
+@import './main-page/sections/header';
+@import './main-page/sections/intro';
+@import './main-page/sections/services';
+@import './main-page/sections/about';
+@import './main-page/sections/news';
+@import './main-page/sections/footer';
+
+// CONTENT PAGE
+@import './content-page/sections/documents';
+
+// CALCULATOR PAGE
+@import './calculator-page/sections/calculator';
 
 * {
     box-sizing: border-box;
@@ -105,5 +113,12 @@ body {
 .btn-file {
     background-color: $sec-color;
     color: $white;
+    font-size: 0.8125rem;
+    font-weight: 900;
     border-radius: 10px;
+    padding: 8px 16px;
+    border: none;
+    line-height: 140%;
+    text-align: center;
+    text-transform: uppercase;
 }

@@ -52,6 +52,34 @@ const burgerInteraction = () => {
   }
 };
 
+/***/ }),
+
+/***/ "./src/assets/js/fileupload.js":
+/*!*************************************!*\
+  !*** ./src/assets/js/fileupload.js ***!
+  \*************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   fileUpload: () => (/* binding */ fileUpload)
+/* harmony export */ });
+const fileUpload = () => {
+  try {
+    const inputField = document.querySelector('#file');
+    const notChoosenText = document.querySelector('.calculator__file-choosed');
+    if (!inputField.value) {
+      notChoosenText.innerHTML = 'файл не выбран';
+    }
+    inputField.addEventListener('input', e => {
+      const name = e.target.files[0].name;
+      notChoosenText.innerHTML = name;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /***/ })
 
 /******/ 	});
@@ -118,9 +146,12 @@ var __webpack_exports__ = {};
   \*******************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _burger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger.js */ "./src/assets/js/burger.js");
+/* harmony import */ var _fileupload_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./fileupload.js */ "./src/assets/js/fileupload.js");
+
 
 window.addEventListener('DOMContentLoaded', () => {
   (0,_burger_js__WEBPACK_IMPORTED_MODULE_0__.burgerInteraction)();
+  (0,_fileupload_js__WEBPACK_IMPORTED_MODULE_1__.fileUpload)();
 });
 })();
 

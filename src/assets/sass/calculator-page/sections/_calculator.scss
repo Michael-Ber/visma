@@ -1,0 +1,187 @@
+.calculator {
+    padding: 80px 0 150px 0;
+    @media(max-width: $breakpoint-991) {
+        padding: 80px 0 70px 0;
+    }
+    &__wrapper {
+        max-width: 66%;
+        margin: 0 auto;
+        @media(max-width: $breakpoint-991) {
+            max-width: 100%;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        padding-bottom: 80px;
+    }
+
+    &__form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(200px, 416px));
+        gap: 24px;
+        justify-content: center;
+        @media(max-width: $breakpoint-575) {
+            grid-template-columns: minmax(280px, 400px);
+        }
+    }
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 0.8125rem;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+    &__label-file {
+        display: inline-block;
+        width: 148px;
+
+    }
+    &__choose-header {
+        display: block;
+        margin-bottom: 20px;
+    }
+    &__input {
+        font-size: 0.8125rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        min-height: 35px;
+        padding: 0 0 0 20px;
+        border-radius: 5px;
+        border: 1px solid rgba($black, .2);
+    }
+
+    &__select-wrapper {
+        position: relative;
+        
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 55%;
+            right: 10px;
+            transform: translateY(-50%);
+            border: 5px solid transparent;
+            border-top: 7px solid $black;
+            z-index: -1;
+        }
+    }
+
+    &__select {
+        width: 100%;
+        min-height: 35px;
+        padding: 0 0 0 20px;
+        border-radius: 5px;
+        border: 1px solid rgba($black, .2);
+        appearance: none;
+        background-color: transparent;
+        z-index: 10;
+    }
+
+    &__textarea {
+        border-radius: 5px;
+        border: 1px solid rgba($black, .2);
+        padding: 20px;
+        resize: unset;
+    }
+    &__choose-header {
+        font-size: 0.8125rem;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+
+
+    &__input-file {
+        @include ptsans;
+        display: none;
+        
+    }
+
+    &__label-file {
+        margin-right: 20px;
+        @media(max-width: $breakpoint-767) {
+            margin-right: 3px;
+        }
+    }
+    &__file-choosed {
+        font-size: 0.8125rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        
+    }
+
+    &__inform {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        padding: 60px 0;
+        @media(max-width: $breakpoint-575) {
+            grid-column-end: 2;
+        }
+    }
+    &__inform-label {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 0.8125rem;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+    &__inform-title {
+        padding-bottom: 40px;
+    }
+    &__inform-checkbox {
+        position: relative;
+        appearance: none;
+        &::after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            background-color: transparent;
+            border: 1px solid $black;
+        }
+        &:checked {
+            &::before {
+                content: url('./assets/icons/success.svg');
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+    }
+
+    &__feedback-title {
+        padding-bottom: 60px;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @media(max-width: $breakpoint-575) {
+            grid-column-end: 2;
+        }
+    }
+
+    &__submit {
+        margin: 0;
+        padding: 0;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        justify-content: center;
+        margin-top: 60px;
+        @media(max-width: $breakpoint-575) {
+            grid-column-end: 2;
+        }
+    }
+}
+.calculator-title {
+    @include adaptiv-size-rem('font-size', 1.6875, 1.2);
+    font-weight: 900;
+    margin: 0;
+    
+}
