@@ -111,14 +111,9 @@
         }
     }
 
-    &__info {
-    }
-
     &__list {
         @include adaptiv-size-rem('font-size', 1, 0.875);
         font-weight: 900;
-        margin: 0;
-        list-style: none;
         text-transform: uppercase;
     }
 

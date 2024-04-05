@@ -75,9 +75,6 @@
 }
 .list-documents {
 
-    &__header {
-    }
-
     &__item {
         &:nth-child(n):not(:last-child) {
             margin-bottom: 10px;

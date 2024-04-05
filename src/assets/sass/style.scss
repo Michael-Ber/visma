@@ -29,6 +29,12 @@ body {
     color: $black;
 }
 
+.list-reset {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
 .container {
     max-width: $container + 30;
     margin: 0 auto;

@@ -39,11 +39,12 @@
         padding-bottom: 60px;
         line-height: 140%;
         max-width: 50%;
-        margin: 0 auto;
+        margin: 0;
         @media(max-width: $breakpoint-991) {
             max-width: 70%;
             padding-bottom: 30px;
             text-align: center;
+            margin: 0 auto;
         }
         @media(max-width: $breakpoint-767) {
             max-width: 100%;
