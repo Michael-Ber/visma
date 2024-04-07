@@ -15,6 +15,12 @@ import webpConv from 'gulp-webp';
 import multiDest from 'gulp-multi-dest';
 import changed from 'gulp-changed';
 
+import rename from 'gulp-rename';
+import notify from 'gulp-notify';
+import sourcemaps from 'gulp-sourcemaps';
+import fileinclude from 'gulp-file-include';
+
+
 
 const sass = gulpSass(nodeSass);
 
@@ -22,11 +28,21 @@ const sass = gulpSass(nodeSass);
 const dist = "./dist";
 
 gulp.task("copy-html", () => {
-  return gulp.src("./src/*.html")
+  return gulp.src("./dist/*.html")
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(dist))
     .pipe(browsersync.stream());
 });
+
+gulp.task("html-include", () => {
+  return gulp.src(['./src/*.html'])
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest(dist))
+    .pipe(browsersync.stream())
+})
 
 gulp.task("build-sass", () => {
   return gulp.src("./src/assets/sass/style.scss")
@@ -102,20 +118,24 @@ gulp.task("watch", () => {
     notify: true
   });
 
-  gulp.watch("./src/*.html", gulp.parallel("copy-html"));
+  gulp.watch("./src/partials/**/*.html", gulp.parallel("html-include"));
+  gulp.watch("./src/*.html", gulp.parallel("html-include"));
   gulp.watch("./src/assets/js/**/*.js", gulp.parallel("build-js"));
   gulp.watch("./src/assets/sass/**/*.scss", gulp.parallel("build-sass"));
   gulp.watch("./src/assets/img/**/*.*", gulp.parallel("imagemin"));
   gulp.watch("./src/assets/icons/**/*.*", gulp.parallel("iconsmin"));
 });
 
-gulp.task("build", gulp.parallel("copy-html", "build-js", "build-sass"));
+gulp.task("build", gulp.series("copy-html", "build-js", "build-sass"));
 
 gulp.task("prod", () => {
   gulp.src("./src/assets/sass/style.scss")
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.init())
+    .pipe(sass({outputStyle: 'expanded'}).on('error', notify.onError()))
+    .pipe(rename({suffix: '.min'}))
     .pipe(postcss([autoprefixer()]))
-    .pipe(cleanCSS())
+    .pipe(cleanCSS({level: 2}))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist))
 
   return gulp.src("./src/assets/js/main.js")
@@ -152,4 +172,4 @@ gulp.task("prod", () => {
     .pipe(gulp.dest(dist));
 });
 
-gulp.task("default", gulp.parallel("watch", "build"));
+gulp.task("default", gulp.series("watch", "build"));

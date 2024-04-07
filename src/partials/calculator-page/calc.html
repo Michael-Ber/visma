@@ -1,0 +1,135 @@
+<section class="calculator">
+    <div class="container">
+        <div class="calculator__wrapper">
+            <h1 class="calculator__title section-title">Запрос ставки и условий погрузочно-разгрузочных работ</h1>
+            <form action="#" class="calculator__form">
+                <label class="calculator__label">
+                    Наименование груза *
+                    <input type="text" required name="name" class="calculator__input">
+                </label>
+                <label class="calculator__label">
+                    Размер партии *
+                    <input type="text" required name="size" class="calculator__input">
+                </label>
+                <label class="calculator__label">
+                    ед. измерения *
+                    <div class="calculator__select-wrapper">
+                        <select name="unit" required id="unit" class="calculator__select">
+                            <option value="1" class="calculator__option">1</option>
+                            <option value="2" class="calculator__option">2</option>
+                            <option value="3" class="calculator__option">3</option>
+                        </select>
+                    </div>
+                    
+                </label>
+                <label class="calculator__label">
+                    Направление перевозки *
+                    <div class="calculator__select-wrapper">
+                        <select name="direction" required id="direction" class="calculator__select">
+                            <option value="1" class="calculator__option">1</option>
+                            <option value="2" class="calculator__option">2</option>
+                            <option value="3" class="calculator__option">3</option>
+                        </select>
+                    </div>
+                </label>
+                <label class="calculator__label">
+                    Пункт назначения перевозки
+                    <input type="text" name="point" class="calculator__input">
+                </label>
+                <label class="calculator__label">
+                    Период поступления груза к перевалке
+                    <div class="calculator__select-wrapper">
+                        <select name="period" id="period" class="calculator__select">
+                            <option value="1" class="calculator__option">1</option>
+                            <option value="2" class="calculator__option">2</option>
+                            <option value="3" class="calculator__option">3</option>
+                        </select>
+                    </div>
+                </label>
+                <label class="calculator__label">
+                    Груз поступает в порт
+                    <div class="calculator__select-wrapper">
+                        <select name="portin" id="portin" class="calculator__select">
+                            <option value="1" class="calculator__option">1</option>
+                            <option value="2" class="calculator__option">2</option>
+                            <option value="3" class="calculator__option">3</option>
+                        </select>
+                    </div>
+                </label>
+                <label class="calculator__label">
+                    Груз отправляется из порта
+                    <div class="calculator__select-wrapper">
+                        <select name="portout" id="portout" class="calculator__select">
+                            <option value="1" class="calculator__option">1</option>
+                            <option value="2" class="calculator__option">2</option>
+                            <option value="3" class="calculator__option">3</option>
+                        </select>
+                    </div>
+                </label>
+                <label class="calculator__label">
+                    Размер судовой партии
+                    <input type="text" name="batch" class="calculator__input">
+                </label>
+                <label class="calculator__label">
+                    Опасность груза (класс)
+                    <input type="text" name="danger" class="calculator__input">
+                </label>
+                <label class="calculator__label">
+                    Дополнительная информация о грузе:
+                    <textarea name="additional" id="additional" cols="30" rows="5" class="calculator__textarea"></textarea>
+                </label>
+                <div class="calculator__choose-file">
+                    <span class="calculator__choose-header">Прикрепить файл</span>
+                    <label class="calculator__label-file btn-file">
+                        выберите файл
+                        <input type="file" name="file" id="file" class="calculator__input-file btn-file">
+                    </label>
+                    <span class="calculator__file-choosed"></span>
+                </div>
+                
+                <div class="calculator__inform">
+                    <h2 class="calculator__inform-title calculator-title">Просим сообщить:</h2>
+                    <label class="calculator__inform-label">
+                        <input type="checkbox" class="calculator__inform-checkbox">
+                        Ставку ПРР
+                    </label>
+                    <label class="calculator__inform-label">
+                        <input type="checkbox" class="calculator__inform-checkbox">
+                        Срок технологического накопления груза
+                    </label>
+                    <label class="calculator__inform-label">
+                        <input type="checkbox" class="calculator__inform-checkbox">
+                        Ставку хранения груза сверх срока технологического накопления
+                    </label>
+                    <label class="calculator__inform-label">
+                        <input type="checkbox" class="calculator__inform-checkbox">
+                        Возможность приёма и перевалки груза в указанные сроки
+                    </label>
+                </div>
+
+                <h2 class="calculator__feedback-title calculator-title">Информация для обратной связи:</h2>
+
+                <label class="calculator__label">
+                    Имя, фамилия
+                    <input type="text" name="surname" class="calculator__input">
+                </label>
+                <label class="calculator__label">
+                    Название компании *
+                    <input type="text" name="company" class="calculator__input">
+                </label>
+                <label class="calculator__label">
+                    Номер телефона/факса
+                    <input type="tel" name="phone" class="calculator__input">
+                </label>
+                <label class="calculator__label">
+                    Адрес эл. почты *
+                    <input type="email" name="email" class="calculator__input">
+                </label>
+
+                <button class="calculator__submit btn btn_main">отправить<span class="btn-arrow btn-arrow_purple">
+                </span></button>
+
+            </form>
+        </div>
+    </div>
+</section>
