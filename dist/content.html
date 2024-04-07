@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +16,12 @@
     <div class="container">
         <div class="header__wrapper">
             <a href="./index.html" class="header__logo">
-                <svg width="108" height="30" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M101.612 30l-3.628-14.422c-.438-1.73-.727-3.461-1.016-5.048h-.147c-.289 1.731-.435 3.318-.87 5.192L92.32 30h-6.242L94.353.002h4.936L108 30h-6.388zM6.387.002l3.63 14.422c.58 1.73.725 3.462 1.015 5.047h.146c.29-1.73.435-3.462.87-5.192L15.679.002h6.242L13.646 30H8.71L0 .002h6.387zm20.031 0h5.952V30h-5.952V.002zm39.631 0l3.047 17.74L71.564.002h7.984L82.596 30H76.5L75.048 8.367l-1.016 7.355L71.564 30h-4.645l-2.903-14.422-1.017-6.634v-.577h-.145L61.984 30h-6.389L58.21.002h7.84zm-18.872 0c-1.016.721-1.74 2.018-2.322 3.316-1.596 3.606.145 6.49 1.596 9.086.146.289.438.721.581 1.154 3.34 5.48 4.5 9.518 2.179 15.286L48.63 30h-7.259c.871-.722 1.741-1.73 2.177-2.885 1.743-3.894-.29-7.499-2.177-11.106-2.176-4.182-4.5-8.508-2.032-14.421.146-.577.727-1.587.727-1.587h7.111v.002z" fill="#3D348B"/></svg>
+                <svg class="header__logo-svg">
+                  <use xlink:href="assets/icons/sprite.svg#logo"></use>
+                </svg>
+                
             </a>
-            <nav class="header__nav">
+            <nav class="header__nav" title="Главная навигация">
                 <ul class="header__list">
                     <li class="header__item"><a href="./content.html" class="header__link" aria-label="О компании">Контент</a></li>
                     <li class="header__item"><a href="./calculator.html" class="header__link" aria-label="Новости">Калькулятор</a></li>
@@ -32,7 +35,10 @@
 
             <form action="#" class="header__search-form">
                 <button class="header__search-btn" type="submit" aria-label="Поиск">
-                    <svg width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__search-img"><path d="M17.972 15.73H16.97l-.355-.342a8.23 8.23 0 001.875-6.761c-.595-3.52-3.534-6.331-7.082-6.762A8.246 8.246 0 002.577 7.37a8.232 8.232 0 00-.379 3.701c.431 3.546 3.244 6.483 6.766 7.078a8.24 8.24 0 006.765-1.873l.343.354v1l5.384 5.382a1.34 1.34 0 001.888 0c.52-.52.52-1.368 0-1.887l-5.372-5.394zm-7.602 0a5.692 5.692 0 01-5.701-5.698 5.692 5.692 0 015.701-5.698 5.692 5.692 0 015.702 5.698 5.692 5.692 0 01-5.702 5.698z" fill="#3D348B"/></svg>
+                    
+                    <svg class="header__search-img">
+                        <use class="test1" xlink:href="assets/icons/sprite.svg#search">
+                    </svg>
                 </button>
                 <input type="text" name="search" class="header__search-input">
             </form>
@@ -44,42 +50,40 @@
             </div>
 
             <div class="header-burger">
-                <div class="header-burger__btn-wrapper">
-                    <div class="header-burger__btn">
-                        <span class="header-burger__line"></span>
-                        <span class="header-burger__line"></span>
-                        <span class="header-burger__line"></span>
-                    </div>
+                <button class="header-burger__btn" aria-label="Открыть меню" aria-expanded="false">
+                    <span class="header-burger__line"></span>
+                    <span class="header-burger__line"></span>
+                    <span class="header-burger__line"></span>
+                </button>
+                <div class="header-burger__menu" aria-hidden="true">
+                    <button class="header-burger__close">&#10006;</button>
+                    <nav class="header-burger__nav">
+                        <ul class="header-burger__list">
+                            <li class="header-burger__item">
+                                <a href="./content.html" class="header-burger__link">Контент</a>
+                            </li>
+                            <li class="header-burger__item">
+                                <a href="./calculator.html" class="header-burger__link">Калькулятор</a>
+                            </li>
+                            <li class="header-burger__item">
+                                <a href="#" class="header-burger__link">Новости</a>
+                            </li>
+                            <li class="header-burger__item">
+                                <a href="#" class="header-burger__link">Новости</a>
+                            </li>
+                            <li class="header-burger__item">
+                                <a href="#" class="header-burger__link">Новости</a>
+                            </li>
+                            <li class="header-burger__item">
+                                <a href="#" class="header-burger__link">Новости</a>
+                            </li>
+                            <li class="header-burger__item">
+                                <a href="#" class="header-burger__link">Новости</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <div class="header-burger__menu">
-                    <div class="header-burger__close">&#10006;</div>
-                        <nav class="header-burger__nav">
-                            <ul class="header-burger__list">
-                                <li class="header-burger__item">
-                                    <a href="./content.html" class="header-burger__link">Контент</a>
-                                </li>
-                                <li class="header-burger__item">
-                                    <a href="./calculator.html" class="header-burger__link">Калькулятор</a>
-                                </li>
-                                <li class="header-burger__item">
-                                    <a href="#" class="header-burger__link">Новости</a>
-                                </li>
-                                <li class="header-burger__item">
-                                    <a href="#" class="header-burger__link">Новости</a>
-                                </li>
-                                <li class="header-burger__item">
-                                    <a href="#" class="header-burger__link">Новости</a>
-                                </li>
-                                <li class="header-burger__item">
-                                    <a href="#" class="header-burger__link">Новости</a>
-                                </li>
-                                <li class="header-burger__item">
-                                    <a href="#" class="header-burger__link">Новости</a>
-                                </li>
-                                
-                            </ul>
-                        </nav>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -215,7 +219,6 @@
 
 </footer>
     <!-- /FOOTER -->
-
     <script src="./script.js"></script>
 </body>
 </html>
