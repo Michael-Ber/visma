@@ -32,25 +32,25 @@
     $parent: &;
     &_1 {
         #{$parent}__img {
-            background: url('./assets/img/webp/news-1.webp') top left/cover no-repeat;
+            background: url('../assets/img/webp/news-1.webp') top left/cover no-repeat;
         }
     }
 
     &_2 {
         #{$parent}__img {
-            background: url('./assets/img/webp/news-2.webp') top left/cover no-repeat;
+            background: url('../assets/img/webp/news-2.webp') top left/cover no-repeat;
         }
     }
 
     &_3 {
         #{$parent}__img {
-            background: url('./assets/img/webp/news-3.webp') top left/cover no-repeat;
+            background: url('../assets/img/webp/news-3.webp') top left/cover no-repeat;
         }
     }
 
     &_4 {
         #{$parent}__img {
-            background: url('./assets/img/webp/news-4.webp') top left/cover no-repeat;
+            background: url('../assets/img/webp/news-4.webp') top left/cover no-repeat;
         }
     }
 

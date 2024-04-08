@@ -86,7 +86,7 @@ body {
         border: 2px solid $white;
     }
     &::before {
-        content: url('./assets/icons/arrow-right.svg');
+        content: '';
         position: absolute;
         top: 50%;
         left: 50%;
@@ -103,7 +103,7 @@ body {
             border: 2px solid $white;
         }
         &::before {
-            content: url('./assets/img/arrow-right-white.svg');
+            content: url('../assets/img/arrow-right-white.svg');
         }
     }
     &_purple {
@@ -111,7 +111,7 @@ body {
             border: 2px solid $main-color;
         }
         &::before {
-            content: url('./assets/img/arrow-right-purple.svg');
+            content: url('../assets/img/arrow-right-purple.svg');
         }
     }
 }

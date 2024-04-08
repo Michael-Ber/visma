@@ -12,21 +12,26 @@ import htmlmin from 'gulp-htmlmin';
 import plumber from 'gulp-plumber';
 import webp from 'gulp-webp';
 import multiDest from 'gulp-multi-dest';
-import changed from 'gulp-changed';
 
-import rename from 'gulp-rename';
+import { readFileSync } from 'fs';
+import path from 'path';
+
 import notify from 'gulp-notify';
-import sourcemaps from 'gulp-sourcemaps';
 import fileinclude from 'gulp-file-include';
 import svgSprite from 'gulp-svg-sprite';
 import svgmin from 'gulp-svgmin';
 import cheerio from 'gulp-cheerio';
 import replace from 'gulp-replace';
-import uglify from 'gulp-uglify-es';
 import { deleteAsync } from 'del';
 import gulpif from 'gulp-if';
 
+import rev from 'gulp-rev';
+import revRewrite from 'gulp-rev-rewrite';
+import revdel from 'gulp-rev-delete-original';
+
+
 const sass = gulpSass(nodeSass);
+const rootFolder = path.basename(path.resolve());
 
 // const dist = "../../../js/OpenServer/domains/portfolio";
 const dist = "./dist";
@@ -69,7 +74,7 @@ gulp.task("styles", () => {
     .pipe(gulpif(isProd, cleanCSS({
       level: 2
     })))
-    .pipe(gulp.dest(dist, { sourcemaps: '.' }))
+    .pipe(gulp.dest(`${dist}/css`, { sourcemaps: '.' }))
     .pipe(browsersync.stream());
 });
 gulp.task("stylesBackend", () => {
@@ -85,7 +90,7 @@ gulp.task("stylesBackend", () => {
       cascade: false,
       grid: true
     }))
-    .pipe(gulp.dest(dist, { sourcemaps: '.' }))
+    .pipe(gulp.dest(`${dist}/css`))
     .pipe(browsersync.stream());
 });
 
@@ -125,7 +130,7 @@ gulp.task("scripts", () => {
       console.error('WEBPACK ERROR', err);
       this.emit('end');
     })
-    .pipe(gulp.dest(dist))
+    .pipe(gulp.dest(`${dist}/js`))
     .pipe(browsersync.stream());
 })
 
@@ -164,7 +169,7 @@ gulp.task("scriptsBackend", () => {
       console.error('WEBPACK ERROR', err);
       this.emit('end');
     })
-    .pipe(gulp.dest(dist))
+    .pipe(gulp.dest(`${dist}/js`))
     .pipe(browsersync.stream());
 })
 
@@ -222,6 +227,33 @@ gulp.task('svgSprites', function () {
     .pipe(gulp.dest('./dist/assets/svg'))
 })
 
+gulp.task("cacheFiles", () => {
+  return gulp.src(`./dist/**/**/*.{css,js,woff2,svg,png,jpg,jpeg,webp}`, {
+    base: dist
+  }) // maybe need fix tabs
+    .pipe(rev())
+    .pipe(revdel())
+    .pipe(gulp.dest('./dist'))
+    .pipe(rev.manifest('rev.json'))
+    .pipe(gulp.dest('./dist'))
+})
+
+gulp.task("revrite", () => {
+  const manifest = readFileSync('dist/rev.json');
+  gulp.src(`${dist}/css/*.css`)
+    .pipe(revRewrite({
+      manifest
+    }))
+    .pipe(gulp.dest(`${dist}/css`));
+  return gulp.src(`${dist}/**/*.html`)
+    .pipe(revRewrite({
+      manifest
+    }))
+    .pipe(gulp.dest(dist));
+})
+  
+
+
 const toProd = (done) => {
   isProd = true;
   done();
@@ -248,4 +280,6 @@ gulp.task("default", gulp.series("clean", "html-include", "scripts", "styles", "
 
 gulp.task("build", gulp.series(toProd, "clean", "html-include", "scripts", "styles", "images", "webp", "svgSprites", "html-minify"));
 
-gulp.task("backend", gulp.series("clean", "html-include", "scriptsBackend", "stylesBackend", "images", "webp", "svgSprites"));
+gulp.task("cache", gulp.series("cacheFiles", "revrite"))
+
+gulp.task("backend", gulp.series(toProd, "clean", "html-include", "scriptsBackend", "stylesBackend", "images", "webp", "svgSprites"));
