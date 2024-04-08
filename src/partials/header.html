@@ -1,9 +1,9 @@
 <header class="header">
     <div class="container">
         <div class="header__wrapper">
-            <a href="./index.html" class="header__logo">
-                <svg class="header__logo-svg">
-                  <use xlink:href="assets/icons/sprite.svg#logo"></use>
+            <a href="./index.html" class="logo header__logo">
+                <svg class="logo__svg header__logo-svg">
+                  <use xlink:href="assets/svg/sprite.svg#logo"></use>
                 </svg>
                 
             </a>
@@ -21,14 +21,16 @@
 
             <form action="#" class="header__search-form">
                 <button class="header__search-btn" type="submit" aria-label="Поиск">
-                    
                     <svg class="header__search-img">
-                        <use class="test1" xlink:href="assets/icons/sprite.svg#search">
+                        <use class="test1" xlink:href="assets/svg/sprite.svg#search">
                     </svg>
                 </button>
                 <input type="text" name="search" class="header__search-input">
             </form>
             <div class="header__language">
+                <svg class="header__language-svg">
+                  <use xlink:href="assets/svg/sprite.svg#arrow-down"></use>
+                </svg>
                 <select name="language" id="lang-selector" class="header__select">
                     <option value="ru" selected class="header__option">RU</option>
                     <option value="en" class="header__option">EN</option>

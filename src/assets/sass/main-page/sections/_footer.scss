@@ -21,23 +21,22 @@
         align-items: center;
         gap: 20px;
         font-weight: 900;
-        &::before {
-            content: url('./assets/icons/map-icon.svg');
-        }
         @media(max-width: $breakpoint-991) {
             justify-content: center;
             order: 2;
         }
     }
+    &__address-icon {
+        width: 30px;
+        height: 30px;
+        use {
+            fill: currentColor;
+        }
+    }
 
     &__logo {
         justify-self: center;
-        &:hover {
-            .footer-logo-path {
-                transition: .3s fill ease;
-                fill: $black;
-            }
-        }
+        
         @media(max-width: 1169px) {
             order: 3;
             grid-column-start: 2;
@@ -48,6 +47,20 @@
             grid-column-end: 2;
             order: 1;
         }
+        &:hover {
+            svg {
+                use {
+                    transition: .3s fill ease-in-out;
+                    fill: $black;
+                }
+            }
+        }
+    }
+    &__logo-svg {
+        use {
+            fill: $white;
+        }
+        
     }
 
     &__contacts {
@@ -78,20 +91,35 @@
         color: $white;
         text-decoration: none;
         font-weight: 900;
-        &:hover {
-            text-decoration: underline;
-        }
     }
 
     &__phone {
-        &::before {
-            content: url('./assets/icons/phone.svg');
+        transition: .3s color ease-in-out;
+        &:hover {
+            color: $sec-color;
+        }
+    }
+
+    &__phone-icon {
+        width: 23px;
+        height: 23px;
+        use {
+            fill: currentColor;
         }
     }
 
     &__email {
-        &::before {
-            content: url('./assets/icons/mail.svg');
+        transition: .3s color ease-in-out;
+        &:hover {
+            color: $sec-color;
+        }
+    }
+
+    &__email-icon {
+        width: 25px;
+        height: 20px;
+        use {
+            fill: currentColor;
         }
     }
 

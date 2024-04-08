@@ -2,7 +2,6 @@
     padding: 100px 0;
     background-color: rgba($main-color, .05);
     &__wrapper {
-        // @include adaptiv-size('gap', 134, 20);
         display: flex;
         justify-content: space-between;
         align-items: flex-start;

@@ -95,13 +95,17 @@
     &__language {
         position: relative;
         padding: 5px;
-        &::after {
-            content: url('./assets/icons/arrow-down.svg');
-            position: absolute;
-            top: 50%;
-            right: 5px;
-            transform: translateY(-50%);
-            z-index: -1;
+    }
+    &__language-svg {
+        position: absolute;
+        width: 15px;
+        height: 10px;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+        z-index: -1;
+        use {
+            fill: $sec-color;
         }
     }
 
@@ -119,8 +123,6 @@
     }
 
     &__logo-svg {
-        width: 108px;
-        height: 30px;
         use {
             fill: $main-color;
         }

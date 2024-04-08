@@ -103,7 +103,7 @@ body {
             border: 2px solid $white;
         }
         &::before {
-            content: url('./assets/icons/arrow-right-white.svg');
+            content: url('./assets/img/arrow-right-white.svg');
         }
     }
     &_purple {
@@ -111,7 +111,7 @@ body {
             border: 2px solid $main-color;
         }
         &::before {
-            content: url('./assets/icons/arrow-right-purple.svg');
+            content: url('./assets/img/arrow-right-purple.svg');
         }
     }
 }
@@ -130,5 +130,12 @@ body {
     transition: .3s background-color ease-in-out;
     &:hover {
         background-color: darken($sec-color, 10%);
+    }
+}
+
+.logo {
+    &__svg {
+        width: 108px;
+        height: 30px;
     }
 }
